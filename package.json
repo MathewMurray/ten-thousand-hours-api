@@ -1,0 +1,31 @@
+{
+  "name": "ten-thousand-hours-api",
+  "version": "1.0.0",
+  "description": "10,000 hours back end server and database hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require test/setup.js",
+    "start": "node src/server.js",
+    "dev": "nodemon srv/server.js",
+    "predeploy": "npm audit",
+    "deploy": "git push heroku master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MathewMurray/ten-thousand-hours-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MathewMurray/ten-thousand-hours-api/issues"
+  },
+  "homepage": "https://github.com/MathewMurray/ten-thousand-hours-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "morgan": "^1.10.0"
+  }
+}
