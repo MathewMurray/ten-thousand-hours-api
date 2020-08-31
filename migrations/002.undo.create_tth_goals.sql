@@ -1,0 +1,4 @@
+ALTER TABLE tth_users
+    DROP COLUMN IF EXISTS goal_id;
+
+DROP TABLE IF EXISTS user_goals CASCADE;
