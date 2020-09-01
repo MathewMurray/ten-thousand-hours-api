@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs')
-const jst = require('JsonWebTokenError')
+const jwt = require('JsonWebToken')
 const config = require('../config');
 
 const AuthService = {
@@ -12,7 +12,7 @@ const AuthService = {
         return bcrypt.compare(password,hash);
     },
     createJwt(subject,payload){
-        return jwt.substring(payload,config.JWT_SECRET, {
+        return jwt.sign(payload,config.JWT_SECRET, {
             subject,
             algorithm: 'HS256',
         });

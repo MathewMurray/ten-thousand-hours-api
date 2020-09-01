@@ -2,11 +2,11 @@
   "name": "ten-thousand-hours-api",
   "version": "1.0.0",
   "description": "10,000 hours back end server and database hooks",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "mocha --require test/setup.js",
     "start": "node src/server.js",
-    "dev": "nodemon srv/server.js",
+    "dev": "nodemon src/server.js",
     "migrate": "postgrator --config postgrator-config.js",
     "migrate:test": "env NODE_ENV=test npm run migrate",
     "predeploy": "npm audit",

@@ -8,3 +8,4 @@ CREATE TABLE user_goals (
         REFERENCES tth_users(id) ON DELETE CASCADE NOT NULL
 
 );
+

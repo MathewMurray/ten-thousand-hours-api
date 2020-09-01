@@ -8,8 +8,9 @@ TRUNCATE
 
 INSERT INTO tth_users (user_name,full_name,password)
 VALUES
-('admin','Admin user','126251'),
-('testuser','Test User','testing');
+('admin','Admin user','YWRtaW46MTI2MjUx'),
+('testuser','Test User','$2a$10$FFFr2BfMG/4bovwGg/9J.OGhrUyCjiFCzQDAFPS2bmxXaUnJKrmNK'
+);
 
 INSERT INTO user_goals (title,target,user_id)
 VALUES 
