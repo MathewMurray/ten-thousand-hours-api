@@ -9,7 +9,8 @@ const jsonBodyParser = express.json()
 
 goalsRouter
     .route('/')
-    .get(RequireAuth,(req,res,next) => {
+    .all(RequireAuth)
+    .get((req,res,next) => {
         const user_id = req.user.id
         GoalsService.getAllGoals(req.app.get('db',user_id))
             .then(goals => 
