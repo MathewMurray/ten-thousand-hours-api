@@ -2,27 +2,24 @@ const xss = require('xss')
 //const Treeize = require('treeize')
 
 const GoalsService = {
-    getAllGoals(db){
+    getAllGoals(db,user_id){
         return db
             .from('user_goals AS goal')
-            .select(
-                'goal.id',
-                'goal.title',
-                'goal.target',
-                'goal.date_created',
-                ...userFields,
-            )
-            .leftJoin(
-                'tth_users',
-                'goal.user_id',
-                'tth_users.id',
-            )
+            .select('*')
+            .where('goal.user_id' == user_id)
             .orderBy('goal.id')
     },
     getById(db,id){
         return GoalsService.getAllGoals(db)
             .where('goal.id',id)
             .first()
+    },
+    insertGoal(db,newGoal){
+        return db
+            .insert(newGoal)
+            .into('user_goals')
+            .returning('*')
+            .then(([goal]) => goal)
     },
     getLogsForGoal(db,goal_id){
         return db

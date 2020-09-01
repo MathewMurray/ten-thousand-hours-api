@@ -10,9 +10,9 @@ const jsonBodyParser = express.json()
 logsRouter
     .route('/')
     .post(RequireAuth,jsonBodyParser, (req,res,next) => {
-        const {goal_id,text} = req.body
+        const {goal_id,text,user_hours} = req.body
         const user_id = req.user.id
-        const newLog = {goal_id,text,user_id}
+        const newLog = {goal_id,text,user_hours,user_id}
 
         for(const [key,value] of Object.entries(newLog))
             if(value == null)
