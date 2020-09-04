@@ -8,6 +8,7 @@ const { NODE_ENV } = require('./config');
 const authRouter = require('./auth/auth-router')
 const logsRouter = require('./logs/logs-router');
 const goalsRouter = require('./goals/goals-router');
+const usersRouter = require('./users/users-router');
 
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(helmet());
 app.use('/goals', goalsRouter)
 app.use('/logs',logsRouter)
 app.use('/auth',authRouter)
+app.use('/users',usersRouter)
 
 app.use(function errorHandler(error,req,res,next){
    let response

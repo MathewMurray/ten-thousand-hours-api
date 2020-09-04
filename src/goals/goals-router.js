@@ -12,7 +12,7 @@ goalsRouter
     .all(RequireAuth)
     .get((req,res,next) => {
         const user_id = req.user.id
-        GoalsService.getAllGoals(req.app.get('db',user_id))
+        GoalsService.getAllGoals(req.app.get('db'),user_id)
             .then(goals => 
                 res.json(goals.map(g => GoalsService.serializeGoal(g)))
                 )
