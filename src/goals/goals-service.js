@@ -4,14 +4,16 @@ const xss = require('xss')
 const GoalsService = {
     getAllGoals(db,user_id){
         return db
-            .from('user_goals AS goal')
+            .from('user_goals')
             .select('*')
-            .where('goal.user_id' == user_id)
-            .orderBy('goal.id')
+            .where('user_goals.user_id', user_id)
+            .orderBy('user_goals.id')
     },
-    getById(db,id){
-        return GoalsService.getAllGoals(db)
-            .where('goal.id',id)
+    getById(db,id,user_id){
+        return GoalsService.getAllGoals(db,user_id)
+            .from('user_goals')
+            .select('*')
+            .where('user_goals.id',id)
             .first()
     },
     insertGoal(db,newGoal){
@@ -23,21 +25,21 @@ const GoalsService = {
     },
     getLogsForGoal(db,goal_id){
         return db
-            .from('user_logs AS log')
+            .from('user_logs')
             .select(
-                'log.id',
-                'log.text',
-                'log.user_hours',
-                'log.date_created',
+                'user_logs.id',
+                'user_logs.text',
+                'user_logs.user_hours',
+                'user_log.date_created',
                 ...userFields,
             )
-            .where('log.goal_id',goal_id)
+            .where('user_logs.goal_id',goal_id)
             .leftJoin(
                 'tth_users',
                 'log.user_id',
                 'tth_users.id',
             )
-            .groupBy('log.id','tth_users.id')
+            .groupBy('user_logs.id','tth_users.id')
     },
 
     serializeGoals(goals){
@@ -51,7 +53,7 @@ const GoalsService = {
             title:xss(goal.title),
             target:xss(goal.target), 
             date_created:goal.date_created,
-            user: goal.user || {},
+            user: goal.user_id,
         }
     },
     serializeGoalLogs(logs){

@@ -1,12 +1,17 @@
 const express = require('express')
 const UsersService = require('./users-service')
+const {RequireAuth} = require('../middleware/jwt-auth')
 
 const usersRouter = express.Router()
 const jsonBodyParser = express.json()
 
 usersRouter
-    .post('/',jsonBodyParser,(req,res,next) => {
-        const {password,user_name} = req.body
+    .route('/')
+    .get(RequireAuth,(req,res) => {
+        res.json(UsersService.serializeUsers(req.user))
+    })
+    .post(jsonBodyParser,(req,res,next) => {
+        const {full_name,password,user_name} = req.body
         for(const field of ['full_name','user_name','password'])
             if(!req.body[field])
                 return res.status(400).json({
@@ -40,7 +45,6 @@ usersRouter
                     .then(user => {
                         res
                             .status(201)
-                            .location(path.posix.join(req.originalUrl,`/${user.id}`))
                             .json(UsersService.serializeUsers(user))
                     })
             })
