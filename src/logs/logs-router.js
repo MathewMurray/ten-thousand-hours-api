@@ -26,7 +26,9 @@ logsRouter
             newLog
         )
             .then(log => {
-                res.status(201).location(path.posix.join(req.originalUrl,`/${log.id}`))
+                res
+                .status(201)
+                .location(path.posix.join(req.originalUrl,`/${log.id}`))
                 .json(LogsService.serializeLog(log))
             })
             .catch(next)

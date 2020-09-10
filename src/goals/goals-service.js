@@ -30,13 +30,13 @@ const GoalsService = {
                 'user_logs.id',
                 'user_logs.text',
                 'user_logs.user_hours',
-                'user_log.date_created',
+                'user_logs.date_created',
                 ...userFields,
             )
-            .where('user_logs.goal_id',goal_id)
+            .where('goal_id',goal_id)
             .leftJoin(
                 'tth_users',
-                'log.user_id',
+                'user_logs.user_id',
                 'tth_users.id',
             )
             .groupBy('user_logs.id','tth_users.id')

@@ -14,14 +14,14 @@ goalsRouter
     .get((req,res,next) => {
         const user_id = req.user.id
         GoalsService.getAllGoals(req.app.get('db'),user_id)
-            .then(goals => 
+            .then(goals => {
                 res.json(
                     {
                         user:UsersService.serializeUsers(req.user),
                         goals:goals.map(goals => GoalsService.serializeGoal(goals))
                     }
                 )
-            )
+                })
             .catch(next)
     })
     .post(RequireAuth,jsonBodyParser,(req,res,next) => {
@@ -55,7 +55,7 @@ goalsRouter
     })
 
 goalsRouter
-    .route('/:goal_id/logs/')
+    .route('/:goal_id/logs')
     .all(RequireAuth)
     .all(checkGoalExists)
     .get((req,res,next) => {

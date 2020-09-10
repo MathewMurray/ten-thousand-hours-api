@@ -3,14 +3,14 @@ const xss = require('xss')
 const LogsService = {
     getById(db,id){
         return db
-            .from('user_logs')
+            .from('user_logs AS log')
             .select(
-                'user_logs.id',
-                'user_logs.text',
-                'user_logs.user_hours',
-                'user_logs.date_created',
-                'user_logs.goal_id',
-                'user_logs.user_id',
+                'log.id',
+                'log.text',
+                'log.user_hours',
+                'log.date_created',
+                'log.goal_id',
+                'log.user_id',
                 db.raw(
                     `row_to_json(
                         (SELECT tmp FROM (
@@ -21,15 +21,15 @@ const LogsService = {
                                 usr.date_created,
                                 usr.date_modified
                         ) tmp)
-                    ) AS "user"`
+                    ) AS user`
                 )
             )
             .leftJoin(
                 'tth_users AS usr',
-                'user_logs.user_id',
+                'log.user_id',
                 'usr.id',
             )
-            .where('user_logs.id', id)
+            .where('log.id', id)
             .first()
     },
 
@@ -39,7 +39,9 @@ const LogsService = {
             .into('user_logs')
             .returning('*')
             .then(([log]) => log)
-            .then(log => LogsService.getById(db,log.id))
+            .then(log => 
+                LogsService.getById(db,log.id)
+            )
     },
 
     serializeLog(log){
