@@ -2,7 +2,6 @@ const express = require('express')
 const path = require('path')
 const LogsService = require('./logs-service')
 const { RequireAuth } = require('../middleware/jwt-auth')
-//const { BasicAuth } = require('../middleware/basic-auth')
 
 const logsRouter = express.Router()
 const jsonBodyParser = express.json()

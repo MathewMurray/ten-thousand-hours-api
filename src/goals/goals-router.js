@@ -3,7 +3,6 @@ const GoalsService = require('./goals-service')
 const { RequireAuth } = require('../middleware/jwt-auth')
 const path = require('path')
 const UsersService = require('../users/users-service')
-//const { BasicAuth } = require('../middleware/basic-auth')
 
 const goalsRouter = express.Router()
 const jsonBodyParser = express.json()

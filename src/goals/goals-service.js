@@ -1,5 +1,4 @@
 const xss = require('xss')
-//const Treeize = require('treeize')
 
 const GoalsService = {
     getAllGoals(db,user_id){
@@ -39,7 +38,6 @@ const GoalsService = {
                 'user_logs.user_id',
                 'tth_users.id',
             )
-            //.groupBy('user_logs.id','tth_users.id')
     },
 
     serializeGoals(goals){
@@ -47,7 +45,6 @@ const GoalsService = {
     },
     serializeGoal(goal){
 
-        //const goalData = goalTree.grow([goal]).getData()[0]
         return {
             id: goal.id,
             title:xss(goal.title),
@@ -60,8 +57,7 @@ const GoalsService = {
         return logs.map(this.serializeGoalLog)
     },
     serializeGoalLog(log){
-        //const logTree = new Treeize()
-        //const logData = logTree.grow([ log ]).getData()[0]
+
         return {
             id: log.id,
             text: xss(log.text),
