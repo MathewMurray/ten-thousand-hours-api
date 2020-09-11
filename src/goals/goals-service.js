@@ -39,7 +39,7 @@ const GoalsService = {
                 'user_logs.user_id',
                 'tth_users.id',
             )
-            .groupBy('user_logs.id','tth_users.id')
+            //.groupBy('user_logs.id','tth_users.id')
     },
 
     serializeGoals(goals){
