@@ -63,8 +63,8 @@ goalsRouter
             req.app.get('db'),
             req.params.goal_id
         )
-        .then(logs => {
-            res.json(GoalsService.serializeGoalLogs(logs))
+        .then(log => {
+            res.json(GoalsService.serializeGoalLogs(log))
         })
         .catch(next)
     })
