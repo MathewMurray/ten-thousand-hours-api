@@ -64,7 +64,7 @@ goalsRouter
             req.params.goal_id
         )
         .then(logs => {
-            res.json(GoalsService.serializeGoalLogs(logs))
+            res.json(logs.map(log => GoalsService.serializeGoalLogs(log)))
         })
         .catch(next)
     })
