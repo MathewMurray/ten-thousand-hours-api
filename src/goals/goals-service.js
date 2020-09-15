@@ -33,11 +33,11 @@ const GoalsService = {
                 ...userFields,
             )
             .where('goal_id',goal_id)
-            // .leftJoin(
-            //     'tth_users',
-            //     'user_logs.user_id',
-            //     'tth_users.id',
-            // )
+            .Join(
+                'tth_users',
+                'user_logs.user_id',
+                'tth_users.id',
+            )
     },
 
     serializeGoals(goals){
