@@ -29,7 +29,7 @@ const GoalsService = {
                 'user_logs.id',
                 'user_logs.text',
                 'user_logs.user_hours',
-                'user_logs.date_created',
+                'user_logs.date_created'
                 //...userFields,
             )
             .where('goal_id',goal_id)
