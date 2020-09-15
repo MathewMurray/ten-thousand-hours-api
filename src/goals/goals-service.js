@@ -30,15 +30,15 @@ const GoalsService = {
                 'user_logs.text',
                 'user_logs.user_hours',
                 'user_logs.date_created',
-                ...userFields,
+                //...userFields,
             )
             .where('goal_id',goal_id)
-            .Join(
-                'tth_users',
-                'user_logs.user_id',
-                'tth_users.id',
-            )
-    },
+    //         .Join(
+    //             'tth_users',
+    //             'user_logs.user_id',
+    //             'tth_users.id',
+    //         )
+    // },
 
     serializeGoals(goals){
         return goals.map(this.serializeGoal)
