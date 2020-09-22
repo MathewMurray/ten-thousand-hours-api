@@ -27,9 +27,10 @@ This API acts as middleware for my 10,000 hours database. The API will receive r
 
 ## How was this made?
 10,000 hours is brought to you with the help from the following:
-    1. HTML
-    1. JavaScript
-    1. CSS
-    1. React
-    1. Postgresql
-    1. Express
+
+   1. HTML
+   2. JavaScript
+   3. CSS
+   4. React
+   5. Postgresql
+   6. Express
