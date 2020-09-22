@@ -10,8 +10,10 @@ https://ten-thousand-hours.vercel.app/ (live application)
 This is currently hosted by Heroku!
 
 [Alt text](/screenshots/homepage.png?raw=true "Optional Title")
+
 ## API Service files - 
 ### auth-service.js:
+
 [Alt text](/screenshots/login.png?raw=true "Optional Title")
 this endpoint gives authentication functionality to my back end. It gets the username based on what the user puts in the login field of the front end, compares the password entered to what is stored in the database and grants access with a Authentication token if the credentials match.
 
