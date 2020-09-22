@@ -30,14 +30,8 @@ const GoalsService = {
                 'user_logs.text',
                 'user_logs.user_hours',
                 'user_logs.date_created',
-                //...userFields,
             )
             .where('goal_id',goal_id)
-            // .Join(
-            //     'tth_users',
-            //     'user_logs.user_id',
-            //     'tth_users.id',
-            // )
     },
 
     serializeGoals(goals){
@@ -69,12 +63,5 @@ const GoalsService = {
     },
 }
 
-const userFields = [
-    'tth_users.id',
-    'tth_users.user_name',
-    'tth_users.full_name',
-    'tth_users.date_created',
-
-]
 
 module.exports = GoalsService
