@@ -9,24 +9,24 @@ https://ten-thousand-hours.vercel.app/ (live application)
 
 This is currently hosted by Heroku!
 
-[Alt text](/screenshots/homepage.png?raw=true "Optional Title")
+![Alt text](/screenshots/homepage.png?raw=true "Optional Title")
 
 ## API Service files - 
 ### auth-service.js:
 
-[Alt text](/screenshots/login.png?raw=true "Optional Title")
+![Alt text](/screenshots/login.png?raw=true "Optional Title")
 this endpoint gives authentication functionality to my back end. It gets the username based on what the user puts in the login field of the front end, compares the password entered to what is stored in the database and grants access with a Authentication token if the credentials match.
 
 ### goals-service:
-[Alt text](/screenshots/userpage.png?raw=true "Optional Title")
+![Alt text](/screenshots/userpage.png?raw=true "Optional Title")
 this endpoint gives the user access to their specific goals stored on the database.
 
 ### logs-service:
-[Alt text](/screenshots/goalpage.png?raw=true "Optional Title")
+![Alt text](/screenshots/goalpage.png?raw=true "Optional Title")
 The Logs endpoint allows the user to access their posted logs for each goal, as well as post new ones to be stored into the database.
 
 ### users-service:
-[Alt text](/screenshots/register.png?raw=true "Optional Title")
+![Alt text](/screenshots/register.png?raw=true "Optional Title")
 The user-service goes hand in hand with the auth-service endpoint. this endpoint allows for creating new users for my application as well as validating that their password meets the level of security I've set for their password.(1 uppercase letter, 1 lowercase letter, 1 number and 1 special character). It also hashes their password for safe storage in the database I've created for future login's. 
 
 ## what does this API do?
