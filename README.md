@@ -19,6 +19,7 @@ This API acts as middleware for my 10,000 hours database. The API will receive r
 * auth-router -
 
 used to collect a Token from a registered User.
+
 **URL** : `/auth`
 
 **Method** : `POST`
