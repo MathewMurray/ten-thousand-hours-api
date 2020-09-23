@@ -20,7 +20,7 @@ This API acts as middleware for my 10,000 hours database. The API will receive r
 
 used to collect a Token from a registered User.
 
-**URL** : `/auth`
+**URL** : `/auth/login`
 
 **Method** : `POST`
 
@@ -63,12 +63,110 @@ used to collect a Token from a registered User.
    ]
 }
 ```
-### users-router
-## Method:
-POST
+* users-router -
 
-## AUTH required:
-NO
+allows for Account creation and pointing the /login endpoint to the correct user page. 
+
+**URL** : `/users`
+
+**Method** : `POST`
+
+**AUTH required**: NO
+
+**Data constraints**
+```json
+{
+   "full_name":"[none]",
+   "username":"[none]",
+   "password":
+         "[8 characters min, 1 uppercase ,1 lowercase ,1 number,1 special character]"
+}
+```
+**Data example**
+```json
+{
+   "full_name":"demo user",
+   "username":"Demo",
+   "password":"Demo1234!"
+}
+```
+**Success Response -** 
+
+**Code**: `201 Created`
+
+**Content example**
+```json
+{
+    "id": 15,
+    "full_name": "test",
+    "user_name": "test15",
+    "date_created": "2020-09-23T21:33:01.857Z"
+}}
+```
+**Error Response -**
+**condition**: If the request is missing the users full name, username and password, or if the password does not meet requirements.
+
+**Code**: 400 BAD REQUEST
+
+**Content**:
+```json
+{
+   "error":[
+   "missing ${field} in request body"
+   ]
+}
+```
+or
+```json
+{
+   "error":[
+      "password must contain 1 uppercase, 1 lowercase,1 number and 1 special character"
+   ]
+}
+```
+## Closed Endpoints
+* users-router
+**Method** : `GET`
+**Data constraints**
+```json
+{
+   "Authorization":"[bearer token]",
+}
+```
+**Success response**
+**Code** : `200 OK`
+
+*goals-router
+**method** : `GET`
+**Data constraints**
+```json
+{
+   "Authorization":"[bearer token]",
+   "user_id":"[valid user id]"
+}
+```
+**method** : `POST`
+**Data constraints**
+```json
+{
+   "Authorization": "[bearer token]",
+   "user_id":"[valid user id]",
+   "title":"[goal title]",
+   "target":"[target hours]"
+}
+```
+*logs-router
+**method** : `POST`
+**Data constraints**
+```json
+{
+   "Authorization": "[bearer token]",
+   "text":"[text for the log]",
+   "user_hours":"[hours worked]",
+   "goal_id":"[vlid goal id]",
+   ""
+}
+
 
 ## How was this made?
 10,000 hours is brought to you with the help from the following:
