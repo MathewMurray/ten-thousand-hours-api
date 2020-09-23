@@ -19,48 +19,48 @@ This API acts as middleware for my 10,000 hours database. The API will receive r
 ### Login -
 
 used to collect a Token from a registered User.
-# URL:
+## URL:
 /login
 
-# Method:
+## Method:
 POST
 
-# AUTH required:
+## AUTH required:
 NO
 
-# Data constraints
+## Data constraints
 
 {
    "username":"[valid username]",
    "password":"[password in plain text]"
 }
 
-# Data example
+## Data example
 
 {
    "username":"Demo",
    "password":"Demo1234!"
 }
 
-## Success Response - 
+# Success Response - 
 
-# Code:
+## Code:
 200 OK
 
-# Content example
+## Content example
 
 {
    "Token":93144b288eb1fdccbe46d6fc0f241a51766ecd3d"
 }
 
-## Error Response -
-# condition:
+# Error Response -
+## condition:
 If the username and password combination is wrong.
 
-# Code:
+## Code:
 400 BAD REQUEST
 
-# Content:
+## Content:
 
 {
    "error":[
