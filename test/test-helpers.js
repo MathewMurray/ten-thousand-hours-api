@@ -71,12 +71,12 @@ function makeUsersArray() {
       ]
   }
 
-  function makeLogsArray(users,goal){
+  function makeLogsArray(users,goals){
       return [
           {
               id:1,
               text:'First goal log!',
-              user_hours:12
+              user_hours:12,
               goal_id:goals[0].id,
               user_id:users[0].id,
               date_created:'2029-01-22T16:28:32.615Z',
@@ -134,10 +134,10 @@ function makeUsersArray() {
 
   function makeExpectedGoal(users,goal,logs = []) {
       const user = users
-      .find(users => user.id === goal.user_id)
+      .find(user => user.id === goal.user_id)
 
       const goalLogs = logs
-      .filter(log = > log.goal_id === goal.id)
+      .filter(log => log.goal_id === goal.id)
 
       return {
           id:goal.id,
@@ -196,7 +196,7 @@ function makeUsersArray() {
       const testUsers = makeUsersArray()
       const testGoals = makeGoalsArray(testUsers)
       const testLogs = makeLogsArray(testUsers,testGoals)
-      return {testUser,testGoals,testLogs}
+      return {testUsers,testGoals,testLogs}
   }
 
   function cleanTables(db){

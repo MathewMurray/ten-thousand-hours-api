@@ -63,7 +63,7 @@ describe('goals endpoints', function() {
             const {
                 maliciousGoal,
                 expectedGoal,
-            } = helpers.makeMaliciousGoal(testUser)
+            } = helpers.makeMaliciousGoal(testUsers)
 
             beforeEach('insert Malicious Goal', () => {
                 return helpers.seedMaliciousGoal(

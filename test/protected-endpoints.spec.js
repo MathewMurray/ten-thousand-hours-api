@@ -51,7 +51,7 @@ describe('Protected endpoints',() => {
                 .expect(401,{error:"Missing bearer token"})
             })
             it(`responds 401 "Unauthorized request" when invalid JWT secret`, () => {
-                const validUser - testUsers[0]
+                const validUser = testUsers[0]
                 const invalidSecret = 'bad-secret'
                 return endpoint
                     .method(endpoint.path)
